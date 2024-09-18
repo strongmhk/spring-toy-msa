@@ -5,10 +5,11 @@ import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+// 애노테이션만 주석해줘도 스프링이 인식하지 못함
+//@Configuration
 public class FilterConfig {
 
-    @Bean
+//    @Bean
     public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
                 .route(r -> r.path("/first-service/**")
