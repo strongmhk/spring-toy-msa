@@ -3,8 +3,8 @@ server:
 
 eureka:
   client:
-    register-with-eureka: false
-    fetch-registry: false
+    register-with-eureka: true
+    fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka
 
@@ -22,8 +22,8 @@ spring:
 
       routes:
         - id: first-service
-          uri: http://localhost:8081/
-          predicates: # ???(first-service? ???? ??? ?? ?? uri? ??)
+          uri: lb://FIRST-SERVICE
+          predicates: # 조건절(first-service로 시작하는 요청은 모두 해당 uri로 보냄)
             - Path=/first-service/**
           filters:
             - CustomFilter
@@ -31,10 +31,15 @@ spring:
 #            - AddResponseHeader=first-response, first-response-header2
 
         - id: second-service
-          uri: http://localhost:8082/
-          predicates: # ???(second-service? ???? ??? ?? ?? uri? ??)
+          uri: lb://SECOND-SERVICE
+          predicates: # 조건절(second-service로 시작하는 요청은 모두 해당 uri로 보냄)
             - Path=/second-service/**
           filters:
-            - CustomFilter
+            - name: CustomFilter
+            - name: LoggingFilter
+              args:
+                baseMessage: Spring Cloud Gateway Logging Filter
+                preLogger: true
+                postLogger: true
 #            - AddRequestHeader=second-request, second-request-header2
 #            - AddResponseHeader=second-response, second-response-header2
