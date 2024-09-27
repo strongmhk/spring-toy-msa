@@ -43,3 +43,8 @@ spring:
                 postLogger: true
 #            - AddRequestHeader=second-request, second-request-header2
 #            - AddResponseHeader=second-response, second-response-header2
+
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates: # 조건절(user-service로 시작하는 요청은 모두 해당 uri로 보냄)
+            - Path=/user-service/**
