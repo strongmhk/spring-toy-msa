@@ -1,0 +1,45 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: catalog-service
+
+  # H2 Console ??
+  h2:
+    console: # H2 DB? ??? ??? ? ?? ??
+      settings:
+        web-allow-others: true # ?? ??? ?? ??
+      path: /h2-console       # H2 Console ?? URL
+      enabled: true           # H2 Console ?? ??
+
+  sql:
+    init:
+      mode: always # data.sql ???? ??
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:tcp://localhost/~/test
+    username: sa
+    password:
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop        # DB ??? ?? (none, create, create-drop, update, validate)
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true      # ?? ?? ?? (??)
+        show_sql: true        # ?? ?? ??
+    defer-datasource-initialization: true # data.sql ???? ??
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka # eureka ??? ??
+

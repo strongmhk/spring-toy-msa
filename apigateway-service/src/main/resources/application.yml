@@ -48,3 +48,8 @@ spring:
           uri: lb://USER-SERVICE
           predicates: # 조건절(user-service로 시작하는 요청은 모두 해당 uri로 보냄)
             - Path=/user-service/**
+
+        - id: catalog-service
+          uri: lb://USER-SERVICE
+          predicates: # 조건절(catalog-service로 시작하는 요청은 모두 해당 uri로 보냄)
+            - Path=/catalog-service/**
