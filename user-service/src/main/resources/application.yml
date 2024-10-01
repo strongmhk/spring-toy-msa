@@ -1,5 +1,6 @@
 server:
   port: 0
+  ip: 127.0.0.1
 
 spring:
   application:
@@ -22,7 +23,7 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      ddl-auto: create        # DB 초기화 전략 (none, create, create-drop, update, validate)
+      ddl-auto: update        # DB 초기화 전략 (none, create, create-drop, update, validate)
     properties:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
@@ -41,3 +42,8 @@ eureka:
 
 greeting:
   message: Welcome to the Simple E-commerce.
+
+
+token:
+  expiration_time: 86400000
+  secret: user_token_test
