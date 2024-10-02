@@ -87,3 +87,8 @@ spring:
                 postLogger: true
   #            - AddRequestHeader=second-request, second-request-header2
   #            - AddResponseHeader=second-response, second-response-header2
+
+
+token:
+  expiration_time: 86400000
+  secret: testSecretKeytestSecretKeytestSecretKeytestSecretKeytestSecretKeytestSecretKey
