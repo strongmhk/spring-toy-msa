@@ -67,6 +67,8 @@ public class AuthenticationFilterNew extends UsernamePasswordAuthenticationFilte
                 .signWith(secretKey)
                 .compact();
 
+        log.info("Token: " + token);
+
         response.addHeader("token", token);
         response.addHeader("userId", userDetails.getUserId());
     }
