@@ -6,6 +6,12 @@ spring:
   application:
     name: user-service
 
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
   profiles:
     active: dev
 
@@ -55,5 +61,5 @@ management:
   endpoints:
     web:
       exposure:
-        include: refresh, health, beans
+        include: refresh, health, beans, busrefresh
 
