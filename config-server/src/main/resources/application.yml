@@ -4,9 +4,13 @@ server:
 spring:
   application:
     name: config-server
+  profiles:
+    active: native
   cloud:
     config:
       server:
+        native:
+          search-locations: file://${user.home}/Documents/dev/native-file-repo
         git:
           uri: https://github.com/strongmhk/spring-cloud-config.git
 #          password: mypassword
