@@ -48,7 +48,7 @@ public class WebSecurityNew {
                 authorize -> authorize
                         .requestMatchers("/**")
                         .access(
-                                new WebExpressionAuthorizationManager("hasIpAddress('172.30.1.5') or hasIpAddress('::1') or hasIpAddress('" + ALLOWED_IP_ADDRESS + "')")
+                                new WebExpressionAuthorizationManager("hasIpAddress('192.168.123.12') or hasIpAddress('::1') or hasIpAddress('" + ALLOWED_IP_ADDRESS + "')")
                         )
                         .anyRequest().authenticated()
         )
