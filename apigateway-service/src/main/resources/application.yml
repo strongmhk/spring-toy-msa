@@ -105,9 +105,9 @@ spring:
   #            - AddResponseHeader=second-response, second-response-header2
 
 
-token:
-  expiration_time: 86400000
-  secret: testSecretKeytestSecretKeytestSecretKeytestSecretKeytestSecretKeytestSecretKey
+#token:
+#  expiration_time: 86400000
+#  secret: testSecretKeytestSecretKeytestSecretKeytestSecretKeytestSecretKeytestSecretKey
 
 management:
   endpoints:
