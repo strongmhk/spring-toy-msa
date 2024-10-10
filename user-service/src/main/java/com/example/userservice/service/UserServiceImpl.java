@@ -89,13 +89,16 @@ public class UserServiceImpl implements UserService {
 //                new ParameterizedTypeReference<List<ResponseOrder>>() {
 //                });
 //        List<ResponseOrder> orderList = orderListResponse.getBody();
-        List<ResponseOrder> orderList = null;
-        try {
-            orderList = orderServiceClient.getOrders(userId);
-        } catch (FeignException ex) {
-            log.error(ex.getMessage());
-        }
+        // 예외 처리
+//        List<ResponseOrder> orderList = null;
+//        try {
+//            orderList = orderServiceClient.getOrders(userId);
+//        } catch (FeignException ex) {
+//            log.error(ex.getMessage());
+//        }
 
+        // Error Decoder
+        List<ResponseOrder> orderList = orderServiceClient.getOrders(userId);
         userDto.setOrders(orderList);
 
         return userDto;
